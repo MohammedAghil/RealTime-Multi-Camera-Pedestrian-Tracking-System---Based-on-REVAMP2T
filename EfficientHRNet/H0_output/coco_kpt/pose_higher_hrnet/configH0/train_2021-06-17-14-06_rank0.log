@@ -1,0 +1,134 @@
+2021-06-17 14:06:13,987 Namespace(cfg='experiments/coco/higher_hrnet/configH0.yaml', opts=[], gpu=None, world_size=1, dist_url='tcp://127.0.0.1:24456', rank=0)
+2021-06-17 14:06:13,987 AUTO_RESUME: False
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: True
+  ENABLED: True
+DATASET:
+  BASE_SIGMA: 2.0
+  BASE_SIZE: 256.0
+  DATASET: coco_kpt
+  DATASET_TEST: coco
+  DATA_FORMAT: jpg
+  FLIP: 0.5
+  INPUT_SIZE: 512
+  INT_SIGMA: False
+  MAX_NUM_PEOPLE: 30
+  MAX_ROTATION: 30
+  MAX_SCALE: 1.5
+  MAX_TRANSLATE: 40
+  MIN_SCALE: 0.75
+  NUM_JOINTS: 17
+  OUTPUT_SIZE: [128, 256]
+  ROOT: C:/Users/aghil/Desktop/coco
+  SCALE_AWARE_SIGMA: False
+  SCALE_TYPE: short
+  SIGMA: 2
+  TEST: val2017
+  TRAIN: train2017
+  WITH_CENTER: False
+DATA_DIR: 
+DEBUG:
+  DEBUG: True
+  SAVE_BATCH_IMAGES_GT: False
+  SAVE_BATCH_IMAGES_PRED: False
+  SAVE_HEATMAPS_GT: True
+  SAVE_HEATMAPS_PRED: True
+  SAVE_TAGMAPS_PRED: True
+DIST_BACKEND: nccl
+FP16:
+  DYNAMIC_LOSS_SCALE: False
+  ENABLED: False
+  STATIC_LOSS_SCALE: 1.0
+GPUS: (0, 0)
+LOG_DIR: log
+LOSS:
+  AE_LOSS_TYPE: exp
+  HEATMAPS_LOSS_FACTOR: (1.0, 1.0)
+  NUM_STAGES: 2
+  PULL_LOSS_FACTOR: (0.001, 0.001)
+  PUSH_LOSS_FACTOR: (0.001, 0.001)
+  WITH_AE_LOSS: (True, True)
+  WITH_HEATMAPS_LOSS: (True, True)
+MODEL:
+  DEPTH_MULT: 1.0
+  EXTRA:
+    DECONV:
+      CAT_OUTPUT: [True]
+      KERNEL_SIZE: [4]
+      NUM_BASIC_BLOCKS: 2
+      NUM_CHANNELS: [32]
+      NUM_DECONVS: 1
+    FINAL_CONV_KERNEL: 1
+    PRETRAINED_LAYERS: ['*']
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [32, 64]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [32, 64, 128]
+      NUM_MODULES: 4
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2, 2]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [32, 64, 128, 256]
+      NUM_MODULES: 3
+    STEM_INPLANES: 64
+  INIT_WEIGHTS: True
+  NAME: pose_higher_hrnet
+  NUM_JOINTS: 17
+  PRETRAINED: C:/Users/aghil/Desktop/efficenthrnet/efficientnet-b0-4cfa50.pth
+  SCALE_FACTOR: 0
+  SYNC_BN: False
+  TAG_PER_JOINT: True
+  WIDTH_MULT: 1.0
+MULTIPROCESSING_DISTRIBUTED: True
+OUTPUT_DIR: H0_output
+PIN_MEMORY: True
+PRINT_FREQ: 100
+RANK: 0
+TEST:
+  ADJUST: True
+  DETECTION_THRESHOLD: 0.1
+  FLIP_TEST: True
+  IGNORE_CENTER: True
+  IGNORE_TOO_MUCH: False
+  IMAGES_PER_GPU: 32
+  LOG_PROGRESS: False
+  MODEL_FILE: C:/Users/aghil/Desktop/PoseEstimation/model_best.pth
+  NMS_KERNEL: 3
+  NMS_PADDING: 1
+  PROJECT2IMAGE: True
+  REFINE: True
+  SCALE_FACTOR: [0.5, 1.0, 2.0]
+  TAG_THRESHOLD: 1.0
+  USE_DETECTION_VAL: True
+  WITH_AE: (True, True)
+  WITH_HEATMAPS: (True, True)
+TRAIN:
+  BEGIN_EPOCH: 0
+  CHECKPOINT: 
+  END_EPOCH: 300
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  IMAGES_PER_GPU: 16
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP: [200, 260]
+  MOMENTUM: 0.9
+  NESTEROV: False
+  OPTIMIZER: adam
+  RESUME: False
+  SHUFFLE: True
+  WD: 0.0001
+VERBOSE: True
+WORKERS: 0

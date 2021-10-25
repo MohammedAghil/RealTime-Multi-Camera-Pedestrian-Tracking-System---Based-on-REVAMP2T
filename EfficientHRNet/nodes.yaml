@@ -1,0 +1,35 @@
+# Default settings: specify no/any/all settings inside of a node entry to override
+default:
+    # Image source configuration
+    type: ImageFolder
+    framerate: 60                  # Camera's framerate
+    sys_framerate: 60              # System's framerate
+    cam_address: null              # Must be specified if IPCamera
+    image_path: null               # Must be specified if ImageFolder
+    sequence: null                 # Specify if subset of image_path is desired
+
+    # Output configurations
+    json_path: null                # Specify to save keypoint jsons per frame
+    draw_bboxes: True
+    draw_poses: True
+
+    # Regression/smoothing settings
+    window_length: 15              # How many previous frames to regress over
+    iou_threshold: 0.05            # Minimum IoU for frames over a history
+    forgetfulness: 2               # How many frames until a history is deleted
+    regress_type: corners          # corners- bbox corners, keypoints- individual keypoints
+
+    # Logging settings
+    verbose: True
+
+
+nodes:
+    1:
+        type: ImageFolder
+        image_path: C:/Users/aghil/Desktop/images/camera2
+        image_output_path:
+            EfficentHRNet: C:/Users/aghil/Desktop/images/EfficentHRNet
+            PLROSNET: C:/Users/aghil/Desktop/images/plrosnet
+            DeepSort: C:/Users/aghil/Desktop/images/deepsort
+
+        sequence: [0000, 2000]

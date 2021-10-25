@@ -1,0 +1,17 @@
+#settings
+nn_budget : None
+max_cosine_distance : 0.2
+nms_max_overlap : 1.0
+min_detection_height : 0
+min_confidence : 0.8
+
+#Multi Tracker Settings
+max_iou_distance : 0.7
+max_age : 30  #Maximum number of missed misses before a track is deleted.
+n_init : 3 #Number of consecutive detections before the track is confirmed
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+#main settings
+USE_PRETRAINED: True
+
+MODELS:
+  PRETRAINED: 'C:/Users/aghil/Desktop/SmartCityDependencies/PLROSNet/pre_trained/model.pth.tar-100'
+
+#settings
+keypoint_threshold: 0.55
